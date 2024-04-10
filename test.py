@@ -18,5 +18,15 @@ def test_should_add_task_when_calling_add_item_method():
     controller.add_item(title="task1", description="description")
     # assert
     assert len(list_test) > 0
+    
+def test_should_list_items_when_calling_list_items_method():
+    # configuration
+    list_test = []
+    controller = TodoListController(todo_list=list_test)
+    controller.add_item(title="task1", description="description")
+    # act
+    controller.list_items()
+    # assert
+    assert len(list_test) > 0
 
 
