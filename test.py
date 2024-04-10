@@ -28,5 +28,15 @@ def test_should_list_items_when_calling_list_items_method():
     controller.list_items()
     # assert
     assert len(list_test) > 0
+    
+def test_should_complete_item_when_calling_complete_item_method():
+    # configuration
+    list_test = []
+    controller = TodoListController(todo_list=list_test)
+    controller.add_item(title="task1", description="description")
+    # act
+    controller.complete_item(0)
+    # assert
+    assert list_test[0].completed == True
 
 
