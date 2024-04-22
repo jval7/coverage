@@ -29,4 +29,15 @@ def test_should_list_items_when_calling_list_items_method():
     # assert
     assert len(list_test) > 0
 
+def test_should_handle_invalid_index_on_complete_item():
+    # configuration
+    list_test = []
+    controller = TodoListController(todo_list=list_test)
+    controller.add_item(title="task1", description="description")
+    # act
+    controller.complete_item(5)  # Un índice que no existe
+    # assert
+    assert list_test[0].completed == False  # Debería seguir siendo False
+
+
 
