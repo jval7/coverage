@@ -19,10 +19,9 @@ class TodoListController:
         self.todo_list.append(item)
 
     def complete_item(self, index):
-        try:
-            self.todo_list[index].mark_as_completed()
-        except IndexError:
-            print("Índice de tarea no válido")
+        if index < 0 or index >= len(self.todo_list):
+            raise IndexError("Índice de tarea no válido")
+        self.todo_list[index].mark_as_completed()
 
     def list_items(self):
         for i, item in enumerate(self.todo_list):
